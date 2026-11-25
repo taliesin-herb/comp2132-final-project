@@ -55,4 +55,8 @@ class Game {
 
 fetch("data/words.json")
 .then(response => response.json())
-.then(words => console.log(words));
+.then(words => {
+  const index = Math.floor(Math.random() * words.length);
+  const chosenWord = words[index];
+  console.log(chosenWord)
+});
