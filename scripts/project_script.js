@@ -65,6 +65,11 @@ class Game {
 
 }
 
+function drawGame(){
+  document.getElementById("masked_word").textContent = game.getMaskedWord();
+  document.getElementById("hangman_image").src=`images/wave${game.getWrongGuessCount()}.jpeg`;
+}
+
 let game;
 
 fetch("data/words.json")
@@ -74,4 +79,5 @@ fetch("data/words.json")
   const chosenWord = words[index];
   console.log(chosenWord);
   game = new Game(chosenWord.word, chosenWord.hint)
+  drawGame();
 });

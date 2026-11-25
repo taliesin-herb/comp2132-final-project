@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style_with_normalize.css">
         <link rel="stylesheet" href="css/style.css"> 
-        <title>Weylan Media lab</title>
+        <title>Wavebreak</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
@@ -19,7 +19,20 @@
             </h1>
             </header>
             <main>
+                <h2>Wavebreak——otherwise known as Hangman</h2>
                 <div class="y_not_box">
+                    <div>
+                    <img id="hangman_image" src="images/wave0.jpeg" alt="Waves coming in.">
+                    </div>
+                    <p>Try to guess the word before the waves wash you and your camera away...</p>
+                    <div>
+                    <div id="masked_word"></div>
+                    <div id="hangman_hint"></div>
+                    <button id="hint_button" type="button" class="button">Give me a hint</button>
+                    </div>
+                    <div id="letters"></div>
+                    <div id="result"></div>
+                    <button id="play_again" hidden="hidden" type="button" class="button">Play again</button>
                 </div>
             </main>
             <footer>
