@@ -1,5 +1,3 @@
-console.log("loaded");
-
 class Game {
   #word;
   #hint;
@@ -15,7 +13,7 @@ class Game {
   }
 
   getWord(){
-    return this.#word
+    return this.#word;
   }
 
   getHint(){
@@ -99,6 +97,10 @@ function handleLetterClick(event){
 }
 
 document.getElementById("letters").addEventListener("click", handleLetterClick);
+document.getElementById("play_again").addEventListener("click", startNewGame);
+document.getElementById("hint_button").addEventListener("click", ()=>{
+  document.getElementById("hangman_hint").textContent = game.getHint();
+});
 
 
 // LLM-assisted - Claude, Anthropic, November 2026
@@ -121,7 +123,7 @@ function showResult(){
 function startNewGame(){
   const index = Math.floor(Math.random() * wordList.length);
   const chosenWord = wordList[index];
-  game = new Game(chosenWord.word, chosenWord.hint)
+  game = new Game(chosenWord.word, chosenWord.hint);
   drawGame();
   buildLetterButtons();
   document.getElementById("result").textContent = "";
