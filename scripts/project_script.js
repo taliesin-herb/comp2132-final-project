@@ -52,3 +52,7 @@ class Game {
   }
 
 }
+
+fetch("data/words.json")
+.then(response => response.json())
+.then(words => console.log(words));
