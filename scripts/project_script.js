@@ -3,14 +3,14 @@ console.log("loaded");
 class Game {
   #word;
   #hint;
-  #guessedLetters;
+  #guessedLetter;
   #wrongGuessCount;
   
 
   constructor(word, hint){
     this.#word = word;
     this.#hint = hint;
-    this.#guessedLetters = [];
+    this.#guessedLetter = [];
     this.#wrongGuessCount = 0;
   }
 
@@ -25,7 +25,7 @@ class Game {
   getMaskedWord(){
     let wordOutput = "";
     for (let i=0; i < this.#word.length; i++){
-      if (this.#guessedLetters.includes(this.#word[i])){
+      if (this.#guessedLetter.includes(this.#word[i])){
         wordOutput += this.#word[i]
       }
       else {
@@ -44,9 +44,21 @@ class Game {
 
   isWon(){
     for (let i=0; i < this.#word.length; i++){
-      if (!this.#guessedLetters.includes(this.#word[i])){
+      if (!this.#guessedLetter.includes(this.#word[i])){
         return false;
       }
+    }
+    return true;
+  }
+
+  guessLetter(letter){
+    const guess = letter.toLowerCase();
+    if (this.isWon() || this.isLost() ) { return false;};
+    if (this.#guessedLetter.includes(guess)){return false};
+    this.#guessedLetter.push(guess);
+    if (!this.#word.includes(guess)){
+      this.#wrongGuessCount++;
+      return false;
     }
     return true;
   }
