@@ -65,10 +65,13 @@ class Game {
 
 }
 
+let game;
+
 fetch("data/words.json")
 .then(response => response.json())
 .then(words => {
   const index = Math.floor(Math.random() * words.length);
   const chosenWord = words[index];
-  console.log(chosenWord)
+  console.log(chosenWord);
+  game = new Game(chosenWord.word, chosenWord.hint)
 });
