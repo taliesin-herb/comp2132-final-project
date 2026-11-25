@@ -1,3 +1,12 @@
 [
-  { "word": "apple", "hint": "a fruit" }
+  {"word": "iceberg", "hint": "floating ice"},
+  {"word":"estuary", "hint": "river mouth"},
+  {"word": "glacier", "hint": "mountain ice"},
+  {"word": "tidal", "hint": "the presence of water coming in"},
+  {"word": "snowstorm", "hint": "great snow"},
+  {"word": "nimbus", "hint": "rain cloud"},
+  {"word": "ripple", "hint": "water radiates"},
+  {"word": "flow", "hint": "water moves"},
+  {"word": "frozen", "hint": "still"},
+  {"word": "torrent", "hint": "an unforgiving rush"}
 ]
