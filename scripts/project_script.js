@@ -72,6 +72,15 @@ function drawGame(){
 
 let game;
 
+function buildLetterButtons(){
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let buttonOutput = "";
+  for (let i=0; i < alphabet.length; i++){
+    buttonOutput += `<button type="button" class="button" data-letter="${alphabet[i]}">${alphabet[i]}</button>`
+  }
+  document.getElementById("letters").innerHTML = buttonOutput;
+}
+
 fetch("data/words.json")
 .then(response => response.json())
 .then(words => {
@@ -80,4 +89,5 @@ fetch("data/words.json")
   console.log(chosenWord);
   game = new Game(chosenWord.word, chosenWord.hint)
   drawGame();
+  buildLetterButtons();
 });
