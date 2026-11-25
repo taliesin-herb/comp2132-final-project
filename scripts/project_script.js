@@ -14,6 +14,10 @@ class Game {
     this.#wrongGuessCount = 0;
   }
 
+  getWord(){
+    return this.#word
+  }
+
   getHint(){
     return this.#hint;
   }
@@ -71,6 +75,7 @@ function drawGame(){
 }
 
 let game;
+let wordList;
 
 function buildLetterButtons(){
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -81,13 +86,52 @@ function buildLetterButtons(){
   document.getElementById("letters").innerHTML = buttonOutput;
 }
 
-fetch("data/words.json")
-.then(response => response.json())
-.then(words => {
-  const index = Math.floor(Math.random() * words.length);
-  const chosenWord = words[index];
-  console.log(chosenWord);
+function handleLetterClick(event){
+  if (event.target.tagName !== "BUTTON"){
+    return;
+  }
+  const letter = event.target.dataset.letter;
+
+  game.guessLetter(letter);
+  event.target.disabled = true;
+  drawGame();
+  showResult();
+}
+
+document.getElementById("letters").addEventListener("click", handleLetterClick);
+
+
+// LLM-assisted - Claude, Anthropic, November 2026
+function showResult(){
+  const resultBox = document.getElementById("result");
+  if (game.isWon()){
+    resultBox.textContent = "You won! The wave passed and your camera is safe.";
+  } else if (game.isLost()){
+    resultBox.textContent = `You lost. The wave got your camera. The word was ${game.getWord()}.`;
+  } else {
+    return;
+  }
+  document.querySelectorAll("#letters button").forEach(button => {
+    button.disabled = true;
+  });
+  document.getElementById("play_again").hidden = false;
+}
+// End LLM-assisted
+
+function startNewGame(){
+  const index = Math.floor(Math.random() * wordList.length);
+  const chosenWord = wordList[index];
   game = new Game(chosenWord.word, chosenWord.hint)
   drawGame();
   buildLetterButtons();
+  document.getElementById("result").textContent = "";
+  document.getElementById("hangman_hint").textContent = "";
+  document.getElementById("play_again").hidden = true;
+}
+
+fetch("data/words.json")
+.then(response => response.json())
+.then(words => {
+  wordList = words;
+  startNewGame();
 });
