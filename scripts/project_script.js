@@ -70,6 +70,9 @@ class Game {
 function drawGame(){
   document.getElementById("masked_word").textContent = game.getMaskedWord();
   document.getElementById("hangman_image").src=`images/wave${game.getWrongGuessCount()}.jpeg`;
+  document.getElementById("hangman_image").animate(
+    { opacity: [0, 1]},
+    { duration: 600});
 }
 
 let game;
