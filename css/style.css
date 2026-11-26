@@ -1,14 +1,4 @@
 /* LLM-assisted - Claude, Anthropic, November 2026 */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 /* End LLM-assisted */
 html {
   box-sizing: border-box;
