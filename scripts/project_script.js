@@ -103,7 +103,7 @@ document.getElementById("letters").addEventListener("click", handleLetterClick);
 document.getElementById("play_again").addEventListener("click", startNewGame);
 document.getElementById("hint_button").addEventListener("click", ()=>{
   document.getElementById("hangman_hint").textContent = game.getHint();
-});
+  });
 
 
 // LLM-assisted - Claude, Anthropic, November 2026
@@ -135,8 +135,8 @@ function startNewGame(){
 }
 
 fetch("data/words.json")
-.then(response => response.json())
-.then(words => {
-  wordList = words;
-  startNewGame();
-});
+  .then(response => response.json())
+  .then(words => {
+    wordList = words;
+    startNewGame();
+  });

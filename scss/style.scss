@@ -2,7 +2,6 @@ $teal: #007d8b;
 
 /* LLM-assisted - Claude, Anthropic, November 2026 */
 $white: #ffffff;
-$error-red: #b3261e;
 
 @mixin button-style($bg, $text, $hover-bg) {
   padding: 0.6rem 1rem;
@@ -62,8 +61,8 @@ h1{
     font-weight: 700;
 }
 
-ol, ul{
-    padding-left: 20px;
+h2{
+    font-size: 1.5rem;
 }
 
 a{
@@ -83,19 +82,8 @@ footer{
 .y_not_box{
     border: 1px solid white;
     border-radius: 1px;
-    margin: 30px 20px;
     padding: 30px;
     display: block;
-}
-
-.y_not_white{
-    background-color: white;
-    color: $teal;
-}
-
-.y_not_white p{
-    color: $teal;
-    font-weight: 500;
 }
 
 #hangman_image{
@@ -108,41 +96,42 @@ footer{
 
 @media (min-width:500px) {
 
-#wrapper{
-    place-items: start stretch;
-    align-items: start;
-    justify-items: stretch;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;      
-    gap: 10px;
-}
+    #wrapper{
+        place-items: start stretch;
+        align-items: start;
+        justify-items: stretch;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;      
+        gap: 10px;
+    }
 
-header{
-    grid-column: 1;
-    grid-row: 1;
-}
+    header{
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-main{
-    width: 100%;
-    grid-column: 1;
-    grid-row: 2;
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 30px;
-}
+    main{
+        width: 100%;
+        grid-column: 1;
+        grid-row: 2;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 10px;
+    }
 
-.y_not_box{
-    margin: 0;
-    height: 100%;
-}
-#special_title{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 10px;
-}
+    .y_not_box{
+        margin: 0;
+        height: 100%;
+    }
+
+    #special_title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 10px;
+    }
 }
 
 .button {
@@ -155,6 +144,9 @@ main{
     align-items: center;
     text-align: center;
     gap: 20px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #letters{
@@ -162,4 +154,23 @@ main{
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+}
+
+#masked_word{
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    margin-bottom: 10px;
+    padding-left: 0.5em;
+}
+
+#hangman_hint{
+    margin-bottom: 20px;
+    font-size: 1rem;
+    min-height: 1rem;
+}
+
+#result{
+    font-size: large;
+    min-height: 1rem;
 }

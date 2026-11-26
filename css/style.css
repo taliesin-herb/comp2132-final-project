@@ -35,8 +35,8 @@ h1 {
   font-weight: 700;
 }
 
-ol, ul {
-  padding-left: 20px;
+h2 {
+  font-size: 1.5rem;
 }
 
 a {
@@ -56,19 +56,8 @@ footer {
 .y_not_box {
   border: 1px solid white;
   border-radius: 1px;
-  margin: 30px 20px;
   padding: 30px;
   display: block;
-}
-
-.y_not_white {
-  background-color: white;
-  color: #007d8b;
-}
-
-.y_not_white p {
-  color: #007d8b;
-  font-weight: 500;
 }
 
 #hangman_image {
@@ -100,7 +89,7 @@ footer {
     place-items: center;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    gap: 30px;
+    gap: 10px;
   }
   .y_not_box {
     margin: 0;
@@ -138,6 +127,9 @@ footer {
   align-items: center;
   text-align: center;
   gap: 20px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 #letters {
@@ -145,4 +137,23 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+}
+
+#masked_word {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  margin-bottom: 10px;
+  padding-left: 0.5em;
+}
+
+#hangman_hint {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  min-height: 1rem;
+}
+
+#result {
+  font-size: large;
+  min-height: 1rem;
 }/*# sourceMappingURL=style.css.map */
